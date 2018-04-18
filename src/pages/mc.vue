@@ -45,33 +45,31 @@
       <div class="col">
         <q-toolbar inverted class="shadow-1">
           <q-toolbar-title>
-            Medical Certificates
+            Medical Certificates Dashboard
           </q-toolbar-title>
           <q-btn round dense label="Upload MC" icon="file_upload" text-color="primary" @click="opened = true"/>
         </q-toolbar>
         <div class="row">
           <div class="col q-pa-lg">
-            <div class="text-weight-bold q-title">
-              MCs today
+            <div class="text-weight-bold q-title q-mb-lg">
+              Who is sick today?
             </div>
-            <div v-for="mc in mcs" v-if="mcs.length > 0" :key="mc.id" class="q-mt-md shadow-up-1">
-                <!--<p class="q-ma-none q-caption text-weight-light">Name: {{mc.name}}</p>
-                <p class="q-ma-none q-caption text-weight-light">Class: {{mc.class}}</p>
-                <p class="q-ma-none q-caption text-weight-light">Start Date: {{mc.startdate}}</p>
-                <p class="q-ma-none q-caption text-weight-light">End Date: {{mc.enddate}}</p>
-                <img class="q-mt-sm mc" :src="mc.upload" />-->
+            <div v-for="mc in mcs" v-if="mcs.length > 0" :key="mc.id">
                 <q-card text-color="black">
                   <q-card-title>
                     {{mc.name}} ({{mc.class}})
                     <span slot="subtitle">{{mc.startdate}} - {{mc.enddate}}</span>
+                    <q-card-media slot="right">
+                      <img :src="mc.upload" class="mc-list"/>
+                    </q-card-media>
                   </q-card-title>
                   <q-card-separator />
-                  <q-card-media>
-                    <img :src="mc.upload" />
-                  </q-card-media>
+                  <q-card-actions>
+                    <q-btn flat label="See Details" class="text-right" />
+                  </q-card-actions>
                 </q-card>
             </div>
-            <div v-if="mcs.length===0" class="q-title text-weight-light text-center q-pt-lg">
+            <div v-if="mcs.length===0" class="q-title text-weight-light q-pt-lg">
               No MCs Today! Everybody's healthy!
             </div>
           </div>
@@ -109,15 +107,15 @@ export default {
         { value: '6A', label: '6A' },
         { value: '6B', label: '6B' },
         { value: '6C', label: '6C' }
-      ]
+      ],
+      url: ''
     }
   }
 }
 </script>
 
 <style>
-.mc {
- max-height: 150px;
- text-align: center;
+.mc-list {
+  max-width: 200px;
 }
 </style>

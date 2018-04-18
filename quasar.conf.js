@@ -61,6 +61,7 @@ module.exports = function (ctx) {
         'QItem',
         'QItemMain',
         'QItemSide',
+        'QItemTile',
         'QField',
         'QInput',
         'QDatetimePicker',
@@ -77,7 +78,14 @@ module.exports = function (ctx) {
         'QCardSeparator',
         'QCardActions',
         'QModal',
-        'QUploader'
+        'QUploader',
+        'QCollapsible',
+        'QFab',
+        'QFabAction',
+        'QEditor',
+        'QChatMessage',
+        'QTimeline',
+        'QTimelineEntry'
       ],
       directives: [
         'Ripple',
